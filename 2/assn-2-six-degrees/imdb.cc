@@ -8,6 +8,7 @@ using namespace std;
 #include <string.h>
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 
 const char *const imdb::kActorFileName = "actordata";
 const char *const imdb::kMovieFileName = "moviedata";
@@ -54,17 +55,21 @@ bool imdb::getCredits(const string& player, vector<film>& films) const {
     int totalPlayerNum = *(int* )actorFile;
     cout << "there are totally " << totalPlayerNum << " players' information in the database." << endl;
     int location = 0;
-    char* currName = new char[20];
+    //char* currName = (char* )malloc(sizeof(char) * 40);//new char[40];
+    char currName[100];
+    int count = 0;
+    int numMovie = 0;
     for(int i = 0; i < totalPlayerNum; i++){
         location = *((int* )actorFile + (i+1));
         strcpy(currName, (char* )actorFile + location);
         if(!strcmp(player.c_str(), currName)){
             cout << "Found it!\t" ;
+            cout << count++ << "\t";
             printf("%s\n", currName);
-            exit(0);
         }
+        numMove = *((short* ) )
     }
-    delete[] currName;
+    //delete[] currName;
     int totalMovieNum = *(int* )movieFile;
     cout << totalMovieNum << endl;
     return false; 

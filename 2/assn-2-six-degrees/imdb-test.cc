@@ -200,7 +200,7 @@ static void queryForActors(const imdb& db)
 
 void testGetCredits(const imdb& db){
     vector<film> credits;
-    db.getCredits("Cher", credits);
+    db.getCredits("'Agent' Ava Hubbard", credits);
 } 
 
 /**
